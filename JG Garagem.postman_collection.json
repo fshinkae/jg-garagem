@@ -1,0 +1,1204 @@
+{
+	"info": {
+		"_postman_id": "d5124611-7a30-42bc-bb3e-848c37c6dc3e",
+		"name": "JG Garagem",
+		"description": "Bem-vindo à documentação da API Garagem, uma aplicação para a gestão de veículos. Esta API permite criar, visualizar, atualizar e excluir informações de veículos e suas imagens associadas.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23680860"
+	},
+	"item": [
+		{
+			"name": "Vehicles Entity",
+			"item": [
+				{
+					"name": "Get All Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/vehicles/filter?make=Toyota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vehicles",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "make",
+									"value": "Toyota"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Vehicles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/vehicles/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"vehicles",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 23:56:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"vehicleType\": \"Carro\",\n        \"make\": \"Toyota\",\n        \"model\": \"Corolla\",\n        \"year\": 2012,\n        \"color\": \"preto\",\n        \"price\": 50000,\n        \"mileage\": 12000,\n        \"fuelType\": \"Gasolina\",\n        \"transmission\": \"Automática\",\n        \"engineSize\": 2.5,\n        \"user_id\": 1\n    },\n    {\n        \"id\": 3,\n        \"vehicleType\": \"Carro\",\n        \"make\": \"Toyota\",\n        \"model\": \"Corolla\",\n        \"year\": 2012,\n        \"color\": \"preto\",\n        \"price\": 50000,\n        \"mileage\": 12000,\n        \"fuelType\": \"Gasolina\",\n        \"transmission\": \"Automática\",\n        \"engineSize\": 2.5,\n        \"user_id\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Vehicles by Vehicle_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/vehicles/filter?make=Toyota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vehicles",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "make",
+									"value": "Toyota"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Vehicles Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/vehicles/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"vehicles",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Nov 2023 00:18:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"vehicleType\": \"Carro\",\n    \"make\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2012,\n    \"color\": \"preto\",\n    \"price\": 50000,\n    \"mileage\": 12000,\n    \"fuelType\": \"Gasolina\",\n    \"transmission\": \"Automática\",\n    \"engineSize\": 2.5\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Vehicles By Filter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/vehicles/filter?make=Toyota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vehicles",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "make",
+									"value": "Toyota"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Vehicles By Filter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/vehicles/filter?make=Toyota",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"vehicles",
+										"filter"
+									],
+									"query": [
+										{
+											"key": "make",
+											"value": "Toyota"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 23:40:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"vehicleType\": \"Carro\",\n        \"make\": \"Toyota\",\n        \"model\": \"Camry\",\n        \"year\": 2023,\n        \"color\": \"Prata\",\n        \"price\": 25000,\n        \"mileage\": 10000,\n        \"fuelType\": \"Gasolina\",\n        \"transmission\": \"Automática\",\n        \"engineSize\": 2.5,\n        \"user_id\": 1\n    },\n    {\n        \"id\": 2,\n        \"vehicleType\": \"Carro\",\n        \"make\": \"Toyota\",\n        \"model\": \"Corolla\",\n        \"year\": 2012,\n        \"color\": \"preto\",\n        \"price\": 50000,\n        \"mileage\": 12000,\n        \"fuelType\": \"Gasolina\",\n        \"transmission\": \"Automática\",\n        \"engineSize\": 2.5,\n        \"user_id\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Imagens By Vehicle_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/vehicles/images/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vehicles",
+								"images",
+								"2"
+							]
+						},
+						"description": "Este endpoint é utilizado obter as imagens em base64 de cada veiculo"
+					},
+					"response": [
+						{
+							"name": "Get Imagens By Vehicle_ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/api/vehicles/images/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"vehicles",
+										"images",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 Nov 2023 00:21:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    \"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\"\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzZWxsZXJfdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTY5OTU2NzIwNywiZXhwIjoxNzAwMTcyMDA3fQ.FvNRriLvH6cj1g0Wi1beAPZ2dL1AbrpyhFb8YxuP8iwbj5nxFG5bTfHbmajaJmRI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vehicleType\": \"Carro\",\n    \"make\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2012,\n    \"color\": \"preto\",\n    \"price\": 50000.00,\n    \"mileage\": 12000.0,\n    \"fuelType\": \"Gasolina\",\n    \"transmission\": \"Automática\",\n    \"engineSize\": 2.5\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/vehicles/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vehicles",
+								"add"
+							]
+						},
+						"description": "Este endpoint é utilizado para criar um novo veículo. O usuário autenticado fornece os detalhes do veículo no corpo da solicitação. O serviço verifica o usuário autenticado e associa o veículo a esse usuário."
+					},
+					"response": [
+						{
+							"name": "Create Vehicle (SELLER_ROLE)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzZWxsZXJfdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTY5OTU2NzIwNywiZXhwIjoxNzAwMTcyMDA3fQ.FvNRriLvH6cj1g0Wi1beAPZ2dL1AbrpyhFb8YxuP8iwbj5nxFG5bTfHbmajaJmRI"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vehicleType\": \"Carro\",\n    \"make\": \"Toyota\",\n    \"model\": \"Camry\",\n    \"year\": 2023,\n    \"color\": \"Prata\",\n    \"price\": 25000.00,\n    \"mileage\": 10000.0,\n    \"fuelType\": \"Gasolina\",\n    \"transmission\": \"Automática\",\n    \"engineSize\": 2.5\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/vehicles/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"vehicles",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 23:36:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"vehicleType\": \"Carro\",\n    \"make\": \"Toyota\",\n    \"model\": \"Camry\",\n    \"year\": 2023,\n    \"color\": \"Prata\",\n    \"price\": 25000,\n    \"mileage\": 10000,\n    \"fuelType\": \"Gasolina\",\n    \"transmission\": \"Automática\",\n    \"engineSize\": 2.5,\n    \"images\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Upload Images Vehicle Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer SEU_TOKEN_JWT"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "caminho/para/sua/imagem.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/vehicles/uploadImage/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vehicles",
+								"uploadImage",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Upload Images Vehicle Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer SEU_TOKEN_JWT"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/fshinkae/Downloads/corolla.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/vehicles/uploadImage/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"vehicles",
+										"uploadImage",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 23:58:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Imagem salva com sucesso"
+						}
+					]
+				},
+				{
+					"name": "Change Vehicles by Vehicle_ID Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vehicleType\": \"Carro\",\n    \"make\": \"Honda\",\n    \"model\": \"Accord\",\n    \"year\": 2023,\n    \"color\": \"Prata\",\n    \"price\": 25000.00,\n    \"mileage\": 10000.0,\n    \"fuelType\": \"Gasolina\",\n    \"transmission\": \"Automática\",\n    \"engineSize\": 2.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/vehicles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vehicles",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Change Vehicles by Vehicle_ID",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vehicleType\": \"Carro\",\n    \"make\": \"Honda\",\n    \"model\": \"Accord\",\n    \"year\": 2023,\n    \"color\": \"Prata\",\n    \"price\": 25000.00,\n    \"mileage\": 10000.0,\n    \"fuelType\": \"Gasolina\",\n    \"transmission\": \"Automática\",\n    \"engineSize\": 2.5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/vehicles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"vehicles",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 23:42:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"vehicleType\": \"Carro\",\n    \"make\": \"Honda\",\n    \"model\": \"Accord\",\n    \"year\": 2023,\n    \"color\": \"Prata\",\n    \"price\": 25000,\n    \"mileage\": 10000,\n    \"fuelType\": \"Gasolina\",\n    \"transmission\": \"Automática\",\n    \"engineSize\": 2.5,\n    \"images\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Vehicles by Vehicle_ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/vehicles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vehicles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users Entity",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2OTg1NDE0MjgsImV4cCI6MTY5OTE0NjIyOH0.et7xA1oznCp39ha1liKhflHNVQSE8R53meNDGjGXTN4IJ9t_O2Mo4yKM2yiB91rk",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Seller User\",\n    \"username\": \"seller\",\n    \"email\": \"seller_user@example.com\",\n    \"password\": \"seller_password\",\n    \"roles\": [\"ROLE_SELLER\"]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Este endpoint é utilizado para registrar novos usuários. O cliente fornece as informações necessárias para criar uma nova conta no corpo da solicitação (`@RequestBody RegisterDto registerDto`). O serviço de autenticação verifica se as informações são válidas e registra o novo usuário."
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2OTg1NDE0MjgsImV4cCI6MTY5OTE0NjIyOH0.et7xA1oznCp39ha1liKhflHNVQSE8R53meNDGjGXTN4IJ9t_O2Mo4yKM2yiB91rk",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Customer User\",\n    \"username\": \"customer\",\n    \"email\": \"customer_user@example.com\",\n    \"password\": \"customer_password\",\n    \"roles\": [\"ROLE_CUSTOMER\"]\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 21:39:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Usuário registrado com sucesso."
+						},
+						{
+							"name": "Register Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2OTg1NDE0MjgsImV4cCI6MTY5OTE0NjIyOH0.et7xA1oznCp39ha1liKhflHNVQSE8R53meNDGjGXTN4IJ9t_O2Mo4yKM2yiB91rk",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Customer User\",\n    \"username\": \"customer\",\n    \"email\": \"customer_user@example.com\",\n    \"password\": \"customer_password\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 21:40:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "Você deve fornecer pelo menos uma função (role) para o usuário."
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"seller_user@example.com\",\n    \"password\": \"seller_password\"\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Este endpoint é utilizado para autenticar usuários. O usuário fornece credenciais (como nome de usuário e senha) no corpo da solicitação (`@RequestBody LoginDto loginDto`). O serviço de autenticação (`authService`) valida as credenciais e, se válidas, gera um token de acesso JWT."
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"seller_user@example.com\",\n    \"password\": \"seller_password\"\n  }"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 22:00:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzZWxsZXJfdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTY5OTU2NzIwNywiZXhwIjoxNzAwMTcyMDA3fQ.FvNRriLvH6cj1g0Wi1beAPZ2dL1AbrpyhFb8YxuP8iwbj5nxFG5bTfHbmajaJmRI\"\n}"
+						},
+						{
+							"name": "Login Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"seller_user@example.com\",\n    \"password\": \"wrong_password\"\n  }"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Nov 2023 22:18:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Credenciais inválidas"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    ports:
+      - 6612:6612
+    environment:
+      MYSQL_DATABASE: keyslocal
+      MYSQL_TCP_PORT: 6612
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+    user: mysql
+    volumes:
+      - data:/var/lib/mysql:rw
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: db:6612
+
+volumes:
+  data:
