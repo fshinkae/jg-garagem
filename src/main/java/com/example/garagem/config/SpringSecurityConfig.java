@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -33,14 +32,15 @@ public class SpringSecurityConfig {
 	}
 
 	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-				.authorizeRequests((authorize) -> {
-					authorize.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
-					authorize.requestMatchers("/api/auth/**").permitAll();
-					authorize.requestMatchers("/api/vehicles/add").hasRole("SELLER");
-				});
+				.authorizeHttpRequests(requests -> requests
+						.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+						.requestMatchers("/api/auth/**").permitAll()
+						.requestMatchers("/api/vehicles/**").permitAll()
+						.requestMatchers("/api/vehicles/add").hasRole("SELLER")
+				);
 		return http.build();
 	}
 
@@ -49,7 +49,6 @@ public class SpringSecurityConfig {
 		CorsConfiguration configuration = new CorsConfiguration();
 		configuration.setAllowedOrigins(Collections.singletonList("http://localhost:8082")); // Adicione aqui o seu front-end
 
-		// Permita outros métodos, cabeçalhos e credenciais conforme necessário
 		configuration.addAllowedMethod("*");
 		configuration.addAllowedHeader("*");
 		configuration.setAllowCredentials(true);

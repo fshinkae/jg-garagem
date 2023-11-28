@@ -1,9 +1,15 @@
 package com.example.garagem.util;
 
+import com.example.garagem.dto.LoginDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -28,9 +34,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	}
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request,
-																	HttpServletResponse response,
-																	FilterChain filterChain) throws ServletException, IOException {
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException,
+			IOException {
+		String token = getTokenFromRequest(request);
 
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowedOrigins(Collections.singletonList("http://localhost:8082"));
@@ -38,11 +44,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
 		corsConfiguration.setAllowCredentials(true);
 
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", corsConfiguration);
+		if (StringUtils.hasText(token) && jwtTokenProvider.validateToken(token)) {
+			String username = jwtTokenProvider.getUsername(token);
+			UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+			Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+			SecurityContextHolder.getContext().setAuthentication(authentication);
+		}
 
-		CorsFilter corsFilter = new CorsFilter(source);
-		corsFilter.doFilter(request, response, filterChain);
+		filterChain.doFilter(request, response);
 	}
 
 	private String getTokenFromRequest(HttpServletRequest request) {
