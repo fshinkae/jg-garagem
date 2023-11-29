@@ -34,7 +34,8 @@ public class SpringSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.csrf().and().cors().disable()
+		http.csrf().disable()
+				.cors().disable()
 				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
 				.authorizeHttpRequests(requests -> requests
 						.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
