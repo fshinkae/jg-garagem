@@ -45,16 +45,16 @@ public class SpringSecurityConfig {
 	}
 
 	@Bean
-	CorsConfigurationSource corsConfigurationSource() {
-		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Collections.singletonList("http://localhost:8082")); // Adicione aqui o seu front-end
-
-		configuration.addAllowedMethod("*");
-		configuration.addAllowedHeader("*");
-		configuration.setAllowCredentials(true);
+	public CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration corsConfiguration = new CorsConfiguration();
+		corsConfiguration.setAllowedOrigins(Collections.singletonList("http://localhost:8082"));
+		corsConfiguration.setAllowedMethods(Collections.singletonList("*"));
+		corsConfiguration.setAllowedHeaders(Collections.singletonList("*"));
+		corsConfiguration.setAllowCredentials(true);
 
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", configuration);
+		source.registerCorsConfiguration("/**", corsConfiguration);
+
 		return source;
 	}
 
