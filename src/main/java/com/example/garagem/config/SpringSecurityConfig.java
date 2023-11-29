@@ -34,7 +34,7 @@ public class SpringSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.csrf().disable()
+		http.csrf().and().cors().disable()
 				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
 				.authorizeHttpRequests(requests -> requests
 						.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
@@ -49,8 +49,8 @@ public class SpringSecurityConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:8082", "http://localhost:8081"));
-		corsConfiguration.setAllowedMethods(Collections.singletonList("*"));
-		corsConfiguration.setAllowedHeaders(Collections.singletonList("*"));
+		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+		corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
 		corsConfiguration.setAllowCredentials(true);
 
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
