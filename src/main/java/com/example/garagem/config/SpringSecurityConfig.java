@@ -17,6 +17,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 @Configuration
@@ -47,7 +48,7 @@ public class SpringSecurityConfig {
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-		corsConfiguration.setAllowedOrigins(Collections.singletonList("http://localhost:8082"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:8082", "http://localhost:8081"));
 		corsConfiguration.setAllowedMethods(Collections.singletonList("*"));
 		corsConfiguration.setAllowedHeaders(Collections.singletonList("*"));
 		corsConfiguration.setAllowCredentials(true);
