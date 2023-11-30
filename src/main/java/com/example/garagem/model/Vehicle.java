@@ -23,6 +23,7 @@ public class Vehicle {
 	private String fuelType;
 	private String transmission;
 	private Double engineSize;
+	private String description;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")

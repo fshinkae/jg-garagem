@@ -19,4 +19,5 @@ public class VehicleDTO {
 	private String transmission;
 	private Double engineSize;
 	private Long user_id;
+	private String description;
 }

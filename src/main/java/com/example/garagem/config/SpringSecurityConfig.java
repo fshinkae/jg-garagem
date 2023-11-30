@@ -39,6 +39,7 @@ public class SpringSecurityConfig {
 				.authorizeHttpRequests(requests -> requests
 						.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 						.requestMatchers("/api/auth/**").permitAll()
+						.requestMatchers("/api/vehicles/uploadImage").permitAll()
 						.requestMatchers("/api/vehicles/**").permitAll()
 						.requestMatchers("/api/vehicles/add").hasRole("SELLER")
 				);

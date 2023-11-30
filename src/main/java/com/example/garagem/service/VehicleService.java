@@ -85,6 +85,7 @@ public class VehicleService {
 		vehicleDTO.setTransmission(vehicle.getTransmission());
 		vehicleDTO.setEngineSize(vehicle.getEngineSize());
 		vehicleDTO.setUser_id(vehicle.getUser().getId());
+		vehicleDTO.setDescription(vehicle.getDescription());
 
 		return vehicleDTO;
 	}
@@ -95,7 +96,6 @@ public class VehicleService {
 		if (vehicleOptional.isPresent()) {
 			Vehicle vehicle = vehicleOptional.get();
 
-			// Lógica para salvar a imagem no diretório e associá-la ao veículo
 			try {
 				byte[] imageData = saveImage(file);
 				VehicleImages image = new VehicleImages();
