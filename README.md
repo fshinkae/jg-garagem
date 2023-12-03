@@ -7,7 +7,10 @@ Bem-vindo à documentação da API Garagem, uma aplicação para a gestão de ve
 Certifique-se de que você tem as seguintes ferramentas instaladas em seu sistema:
 
 - **Java**: Certifique-se de ter o Java Development Kit (JDK) instalado. Você pode fazer o download em [OpenJDK](https://openjdk.java.net/).
+   `java version 17`
+   ![img_1.png](img_1.png)
 - **Maven**: O Maven é usado para construir o projeto e gerenciar suas dependências. Você pode fazer o download em [Maven](https://maven.apache.org/).
+ `Apache Maven 3.8.6`
 
 
 ## Como Executar o Projeto
