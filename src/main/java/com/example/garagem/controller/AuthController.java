@@ -5,6 +5,7 @@ import com.example.garagem.dto.LoginDto;
 import com.example.garagem.dto.RegisterDto;
 import com.example.garagem.service.AuthService;
 
+import io.swagger.annotations.Authorization;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +54,24 @@ public class AuthController {
 		}
 
 		return new ResponseEntity<>(message, status);
+	}
+
+	@DeleteMapping("/delete")
+	public ResponseEntity<String> deleteByEmail(@RequestBody String email) {
+		String message;
+		HttpStatus status;
+		System.out.println(email);
+		try {
+			authService.deleteByEmail(email);
+			message = "Usuário deletado com sucesso.";
+			status = HttpStatus.OK;
+		} catch (Exception e) {
+			message = "Ocorreu um erro durante a deleção do usuário.";
+			status = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+
+		return new ResponseEntity<>(message, status);
+
 	}
 
 }

@@ -10,4 +10,5 @@ public interface AuthService {
 	String login(LoginDto loginDto);
 	String registerUser(RegisterDto registerDto);
 	Optional<User> searchUser(String email);
+	void deleteByEmail(String email);
 }

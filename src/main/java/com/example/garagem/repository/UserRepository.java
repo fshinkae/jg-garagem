@@ -4,6 +4,8 @@ import com.example.garagem.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
@@ -16,4 +18,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	Optional<User> findByUsernameOrEmail(String username, String email);
 
 	boolean existsByUsername(String username);
+
+	@Modifying
+	@Transactional
+	void deleteByEmail(String email);
 }

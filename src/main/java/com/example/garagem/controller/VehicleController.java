@@ -34,7 +34,6 @@ public class VehicleController {
 	@PostMapping("/add")
 	public ResponseEntity<Vehicle> createVehicle(
 			@RequestBody Vehicle vehicle, Authentication authentication) {
-		System.out.println(authentication);
 		String email = authentication.getName();
 		Optional<User> user = userService.searchUser(email);
 		vehicle.setUser(user.get());

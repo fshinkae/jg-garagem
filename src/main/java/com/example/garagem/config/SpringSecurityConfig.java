@@ -38,7 +38,9 @@ public class SpringSecurityConfig {
 				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
 				.authorizeHttpRequests(requests -> requests
 						.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-						.requestMatchers("/api/auth/**").permitAll()
+						.requestMatchers("/api/auth/login").permitAll()
+						.requestMatchers("/api/auth/register").permitAll()
+						.requestMatchers("/api/auth/delete").hasRole("ADMIN")
 						.requestMatchers("/api/vehicles/uploadImage").permitAll()
 						.requestMatchers("/api/vehicles/**").permitAll()
 						.requestMatchers("/api/vehicles/add").hasRole("SELLER")

@@ -11,7 +11,6 @@ import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -93,6 +92,17 @@ public class AuthServiceImpl implements AuthService {
 			throw new IllegalArgumentException("Email não pode ser nulo ou vazio.");
 		}
 		return userRepository.findByEmail(email);
+	}
+
+	@Override
+	public void deleteByEmail(String email) {
+		Optional<User> user = searchUser(email);
+		if (email == null || email.isEmpty()) {
+			throw new IllegalArgumentException("Email não pode ser nulo ou vazio.");
+		} else if (user.isEmpty()) {
+			throw new RuntimeException("O usuário com o email '" + email + "' não foi encontrado.");
+		}
+		userRepository.deleteByEmail(email);
 	}
 
 }
