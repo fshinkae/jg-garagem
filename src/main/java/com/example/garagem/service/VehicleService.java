@@ -41,6 +41,30 @@ public class VehicleService {
 		return vehicleRepository.save(vehicle);
 	}
 
+	public Vehicle updateVehicle(Long id, Vehicle vehicle) {
+		Optional<Vehicle> vehicleOptional = vehicleRepository.findById(id);
+
+		if (vehicleOptional.isPresent()) {
+			Vehicle vehicleToUpdate = vehicleOptional.get();
+			vehicleToUpdate.setVehicleType(vehicle.getVehicleType());
+			vehicleToUpdate.setMake(vehicle.getMake());
+			vehicleToUpdate.setModel(vehicle.getModel());
+			vehicleToUpdate.setYear(vehicle.getYear());
+			vehicleToUpdate.setColor(vehicle.getColor());
+			vehicleToUpdate.setPrice(vehicle.getPrice());
+			vehicleToUpdate.setMileage(vehicle.getMileage());
+			vehicleToUpdate.setFuelType(vehicle.getFuelType());
+			vehicleToUpdate.setTransmission(vehicle.getTransmission());
+			vehicleToUpdate.setEngineSize(vehicle.getEngineSize());
+			vehicleToUpdate.setDescription(vehicle.getDescription());
+			vehicleToUpdate.setUser(vehicleOptional.get().getUser());
+
+			return vehicleRepository.save(vehicleToUpdate);
+		} else {
+			throw new EntityNotFoundException("Vehicle not found");
+		}
+	}
+
 	public List<VehicleDTO> getAllVehicleDTO() {
 		List<Vehicle> vehicles = vehicleRepository.findAll();
 		List<VehicleDTO> vehicleList = new ArrayList<>();

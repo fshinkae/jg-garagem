@@ -58,11 +58,10 @@ public class VehicleController {
 	@PutMapping("/{id}")
 	public ResponseEntity<Vehicle> updateVehicle(
 			@PathVariable Long id,
-			@RequestBody Vehicle updatedVehicle) {
+			@RequestBody Vehicle vehicle) {
 		Optional<Vehicle> existingVehicle = vehicleService.getVehicleById(id);
 		if (existingVehicle.isPresent()) {
-			updatedVehicle.setId(id);
-			Vehicle savedVehicle = vehicleService.saveVehicle(updatedVehicle);
+			Vehicle savedVehicle = vehicleService.updateVehicle(id, vehicle);
 			return new ResponseEntity<>(savedVehicle, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

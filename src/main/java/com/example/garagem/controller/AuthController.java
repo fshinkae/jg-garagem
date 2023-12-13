@@ -71,7 +71,7 @@ public class AuthController {
 		}
 
 		return new ResponseEntity<>(message, status);
-
 	}
+
 
 }

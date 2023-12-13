@@ -1,9 +1,6 @@
 package com.example.garagem.dto;
 
-import com.example.garagem.model.VehicleImages;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 public class VehicleDTO {
